@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="neon">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suggestion decision — Suggest Page</title>
+<meta name="robots" content="noindex">
+<script src="/js/sp-theme-boot.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<style>
+body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
+.e-wrap{max-width:640px;margin:0 auto;padding:clamp(28px,6vw,64px) clamp(20px,5vw,64px)}
+.kicker{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent,#c8b48a);margin:0 0 12px}
+h1{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:clamp(40px,9vw,72px);line-height:.9;margin:0 0 16px}
+.lede,.meta,.status{font-family:"IBM Plex Mono",monospace;font-size:13px;line-height:1.7;color:var(--ink-soft,#9b9a96)}
+.status{margin-top:22px;padding:14px 16px;border:1px solid var(--line,#2c303a)}
+.status.ok{border-color:color-mix(in srgb,#8fd4a0 55%,var(--line,#2c303a));color:#8fd4a0}
+.status.bad{border-color:color-mix(in srgb,#e08a8a 55%,var(--line,#2c303a));color:#e08a8a}
+.badge{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;border:1px solid var(--line,#2c303a);margin:0 0 14px}
+a{color:var(--accent,#c8b48a)}
+</style>
+</head>
+<body>
+<div class="e-wrap">
+  <p class="kicker">Secure decision link</p>
+  <h1 id="title">Recording decision…</h1>
+  <div id="badge" class="badge" hidden></div>
+  <p class="lede" id="lede">Checking this signed link.</p>
+  <p class="meta" id="meta"></p>
+  <div class="status" id="status">Working…</div>
+  <p class="meta" style="margin-top:28px"><a href="/suggestions/">Public board</a> · <a href="/suggest/">Send a suggestion</a></p>
+</div>
+<form id="beacon" action="https://formsubmit.co/steven@coloritcompany.com" method="POST" style="display:none" target="beacon_iframe">
+  <input type="hidden" name="_subject" value="[suggestpage.com decision]">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="site" value="">
+  <input type="hidden" name="suggestionId" value="">
+  <input type="hidden" name="action" value="">
+  <input type="hidden" name="token" value="">
+  <input type="hidden" name="path" value="">
+</form>
+<iframe name="beacon_iframe" style="display:none" title="decision beacon"></iframe>
+<script>
+(function(){
+  function b64urlToBytes(s){
+    s = s.replace(/-/g,'+').replace(/_/g,'/');
+    while (s.length % 4) s += '=';
+    var bin = atob(s);
+    var out = new Uint8Array(bin.length);
+    for (var i=0;i<bin.length;i++) out[i]=bin.charCodeAt(i);
+    return out;
+  }
+  function decodePayload(token){
+    var parts = String(token||'').split('.');
+    if(parts.length !== 2) return null;
+    try{
+      var json = new TextDecoder().decode(b64urlToBytes(parts[0]));
+      return JSON.parse(json);
+    }catch(e){ return null; }
+  }
+  function parsePath(){
+    var parts = location.pathname.replace(/\/+$/,'').split('/').filter(Boolean);
+    // expect site / {siteId} / {token}
+    var i = parts.indexOf('site');
+    if(i < 0 || parts.length < i+3) return null;
+    return { siteId: decodeURIComponent(parts[i+1]), token: decodeURIComponent(parts.slice(i+2).join('/')) };
+  }
+  var parsed = parsePath();
+  var title = document.getElementById('title');
+  var lede = document.getElementById('lede');
+  var meta = document.getElementById('meta');
+  var status = document.getElementById('status');
+  var badge = document.getElementById('badge');
+  if(!parsed){
+    title.textContent = 'Not a decision link';
+    lede.textContent = 'This page only handles /site/{siteId}/{token} signed buttons from email.';
+    status.textContent = 'Missing site id or token in the URL.';
+    status.className = 'status bad';
+    return;
+  }
+  var payload = decodePayload(parsed.token);
+  if(!payload || !payload.action || !payload.suggestionId){
+    title.textContent = 'Invalid link';
+    lede.textContent = 'This signed token could not be read.';
+    status.textContent = 'Malformed token.';
+    status.className = 'status bad';
+    return;
+  }
+  if(payload.siteId && payload.siteId !== parsed.siteId){
+    title.textContent = 'Site mismatch';
+    status.textContent = 'Token siteId does not match the URL.';
+    status.className = 'status bad';
+    return;
+  }
+  var action = String(payload.action).toLowerCase();
+  var labels = { yes:'Yes', no:'No', later:'Later' };
+  badge.hidden = false;
+  badge.textContent = labels[action] || action;
+  title.textContent = (labels[action] || action) + ' recorded';
+  lede.textContent = 'Thanks — this decision was signed for suggestion ' + payload.suggestionId + '. The public board updates after verification.';
+  meta.textContent = 'site ' + parsed.siteId + (payload.exp ? ' · expires ' + new Date(payload.exp*1000).toISOString() : '');
+  // Beacon to ops inbox so Email Organizer / Suggest Box Monitor can hand to the site agent for HMAC verify + data.json update.
+  var form = document.getElementById('beacon');
+  form.site.value = parsed.siteId;
+  form.suggestionId.value = payload.suggestionId;
+  form.action.value = action;
+  form.token.value = parsed.token;
+  form.path.value = location.pathname;
+  try { form.submit(); } catch(e) {}
+  status.textContent = 'Decision beacon sent. Board will update after the site agent verifies the signature.';
+  status.className = 'status ok';
+})();
+</script>
+</body>
+</html>
