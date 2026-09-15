@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Suggestion pages with a live Yes / Later / No board — Color It Company</title>
-<meta name="description" content="Buy a static suggestion page for your URL. Visitors send ideas; you mark Yes, Later, or No; the public board updates when the site republishes. Page Pack $39/yr or Site Care $39/mo.">
+<title data-i18n="home.title">Suggestion pages with a live Yes / Later / No board — Color It Company</title>
+<meta name="description" data-i18n="home.desc" content="Buy a static suggestion page for your URL. Visitors send ideas; you mark Yes, Later, or No; the public board updates when the site republishes. Page Pack $39/yr or Site Care $39/mo.">
 <link rel="canonical" href="https://suggestpage.com/sell/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Color It Company">
@@ -37,6 +37,11 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
 .themes button{appearance:none;background:transparent;border:0;border-right:1px solid var(--line,#2c303a);color:var(--muted,#63666e);font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;padding:5px 10px;cursor:pointer;text-transform:uppercase}
 .themes button:last-child{border-right:0}
 .themes button[aria-pressed="true"]{color:var(--base-2,#14161c);background:var(--ink,#e8e6e1)}
+.langs{display:flex;gap:0;border:1px solid var(--line,#2c303a)}
+.langs button{appearance:none;background:transparent;border:0;border-right:1px solid var(--line,#2c303a);color:var(--muted,#63666e);font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;padding:5px 10px;cursor:pointer;text-transform:uppercase}
+.langs button:last-child{border-right:0}
+.langs button[aria-pressed="true"]{color:var(--base-2,#14161c);background:var(--ink,#e8e6e1)}
+
 .sec{padding:36px 0 0;border-bottom:1px solid var(--line,#2c303a);padding-bottom:36px}
 .sec:last-of-type{border-bottom:0}
 .sec h2{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:clamp(28px,5vw,40px);letter-spacing:.02em;margin:0 0 16px}
@@ -205,13 +210,18 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
 <body>
 <div class="e-wrap">
   <div class="e-top">
-    <a href="/">Suggest Page</a>
+    <a href="/" data-i18n="nav.brand">Suggest Page</a>
     <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
       
-      <a href="/suggest/">Suggest</a>
-      <a href="/suggestions/">Suggestions</a>
-      <a href="/" aria-current="page">Offer</a>
-      <div class="themes" role="group" aria-label="Color theme">
+      <a href="/suggest/" data-i18n="nav.suggest">Suggest</a>
+      <a href="/suggestions/" data-i18n="nav.suggestions">Suggestions</a>
+      <a href="/" aria-current="page" data-i18n="nav.offer">Offer</a>
+      <div class="langs" role="group" aria-label="Language" data-i18n-aria="lang.aria">
+        <button type="button" data-set-lang="en">EN</button>
+        <button type="button" data-set-lang="es">ES</button>
+        <button type="button" data-set-lang="ro">RO</button>
+      </div>
+      <div class="themes" role="group" aria-label="Color theme" data-i18n-aria="theme.aria">
         <button type="button" data-set-theme="neon">Neon</button>
         <button type="button" data-set-theme="emerald">Emerald</button>
         <button type="button" data-set-theme="dusk">Dusk</button>
@@ -223,57 +233,57 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
   </div>
 
   <header class="e-hero">
-    <p class="e-kicker">Color It Company · Offer</p>
-    <h1>A static page with a live suggestion board</h1>
-    <p class="lede">Visitors send ideas for your site. You (or we) mark Yes, Later, or No. Approved ideas land on a public board when the site republishes — same pattern as the live demo on suggestpage.com.</p>
-    <p class="demo">Live demos: <a href="/suggest/">suggestpage.com</a> · <a href="https://stevenphilley.com/suggest/">stevenphilley.com</a> · <a href="https://panatau.com/suggest.html">panatau.com</a></p>
+    <p class="e-kicker" data-i18n="home.kicker">Color It Company · Offer</p>
+    <h1 data-i18n="home.h1">A static page with a live suggestion board</h1>
+    <p class="lede" data-i18n="home.lede">Visitors send ideas for your site. You (or we) mark Yes, Later, or No. Approved ideas land on a public board when the site republishes — same pattern as the live demo on suggestpage.com.</p>
+    <p class="demo" data-i18n-html="home.demo">Live demos: <a href="/suggest/">suggestpage.com</a> · <a href="https://stevenphilley.com/suggest/">stevenphilley.com</a> · <a href="https://panatau.com/suggest.html">panatau.com</a></p>
   </header>
 
   <section class="sec" aria-labelledby="how">
-    <h2 id="how">How it works</h2>
+    <h2 id="how" data-i18n="home.how.h2">How it works</h2>
     <ol class="steps">
-      <li>Someone submits an idea on your suggestion page.</li>
-      <li>You get the idea by email and decide Yes / Later / No in chat.</li>
-      <li>The public board updates from <code>data.json</code> when the site republishes. You keep the files (GitHub Pages–friendly).</li>
+      <li data-i18n="home.how.1">Someone submits an idea on your suggestion page.</li>
+      <li data-i18n="home.how.2">You get the idea by email and decide Yes / Later / No in chat.</li>
+      <li data-i18n-html="home.how.3">The public board updates from <code>data.json</code> when the site republishes. You keep the files (GitHub Pages–friendly).</li>
     </ol>
   </section>
 
   <section class="sec" aria-labelledby="who">
-    <h2 id="who">Who it’s for</h2>
-    <p>Indie sites, studios, and one-person projects that want a public idea inbox without a CMS. One URL, static files, no login wall for visitors.</p>
+    <h2 id="who" data-i18n="home.who.h2">Who it’s for</h2>
+    <p data-i18n="home.who.p">Indie sites, studios, and one-person projects that want a public idea inbox without a CMS. One URL, static files, no login wall for visitors.</p>
   </section>
 
   <section class="sec" aria-labelledby="pricing">
-    <h2 id="pricing">Pricing</h2>
+    <h2 id="pricing" data-i18n="home.pricing.h2">Pricing</h2>
     <div class="grid">
       <article class="card">
-        <h3>Page Pack</h3>
-        <p class="price">$39 / year · one URL</p>
+        <h3 data-i18n="home.pack.h3">Page Pack</h3>
+        <p class="price" data-i18n="home.pack.price">$39 / year · one URL</p>
         <ul>
-          <li>Static page + suggestion form (light branding)</li>
-          <li>FormSubmit → ops inbox</li>
-          <li>Public board driven by <code>suggestions/data.json</code></li>
-          <li>Up to 12 Yes / Later / No status updates / year → board republish</li>
-          <li>You keep the files (GitHub Pages–friendly)</li>
+          <li data-i18n="home.pack.li1">Static page + suggestion form (light branding)</li>
+          <li data-i18n="home.pack.li2">Web3Forms → ops inbox</li>
+          <li data-i18n-html="home.pack.li3">Public board driven by <code>suggestions/data.json</code></li>
+          <li data-i18n="home.pack.li4">Up to 12 Yes / Later / No status updates / year → board republish</li>
+          <li data-i18n="home.pack.li5">You keep the files (GitHub Pages–friendly)</li>
         </ul>
         <!-- Stripe Payment Link -->
-        <a class="btn" href="https://buy.stripe.com/cNicN4bIFbAv2TydTl1Fe01">Buy Page Pack — $39/yr</a>
+        <a class="btn" href="https://buy.stripe.com/cNicN4bIFbAv2TydTl1Fe01" data-i18n="home.pack.buy">Buy Page Pack — $39/yr</a>
       </article>
       <article class="card">
-        <h3>Site Care</h3>
-        <p class="price">$39 / month · one URL</p>
+        <h3 data-i18n="home.care.h3">Site Care</h3>
+        <p class="price" data-i18n="home.care.price">$39 / month · one URL</p>
         <ul>
-          <li>Everything in Page Pack</li>
-          <li>Monthly triage + status passes as needed (not hard-capped at 12/yr)</li>
-          <li>Small page edits from Approved / Yes ideas (FAQ, roadmap, features-style)</li>
-          <li>Cancel anytime via Stripe portal (once checkout is live)</li>
+          <li data-i18n="home.care.li1">Everything in Page Pack</li>
+          <li data-i18n="home.care.li2">Monthly triage + status passes as needed (not hard-capped at 12/yr)</li>
+          <li data-i18n="home.care.li3">Small page edits from Approved / Yes ideas (FAQ, roadmap, features-style)</li>
+          <li data-i18n="home.care.li4">Cancel anytime via Stripe portal (once checkout is live)</li>
         </ul>
         <!-- Stripe Payment Link -->
-        <a class="btn" href="https://buy.stripe.com/fZu3cu6ol5c72TydTl1Fe00">Buy Site Care — $39/mo</a>
-        <p class="checkout-legal">By buying you agree to the <a href="/terms/">Terms</a>, <a href="/privacy/">Privacy Policy</a>, and <a href="/refunds/">Refunds</a>.</p>
+        <a class="btn" href="https://buy.stripe.com/fZu3cu6ol5c72TydTl1Fe00" data-i18n="home.care.buy">Buy Site Care — $39/mo</a>
+        <p class="checkout-legal" data-i18n-html="home.checkout_legal">By buying you agree to the <a href="/terms/">Terms</a>, <a href="/privacy/">Privacy Policy</a>, and <a href="/refunds/">Refunds</a>.</p>
       </article>
     </div>
-    <div class="optional">
+    <div class="optional" data-i18n-html="home.board_build">
       <strong>Board Build — $299 one-time (optional).</strong>
       Branded first page + form + board. Attach to either SKU.
     </div>
@@ -282,64 +292,64 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
   <section class="sec" aria-labelledby="includes">
     
   <section class="examples" aria-labelledby="examples">
-    <h2 id="examples">Live examples</h2>
-    <p class="lede" style="margin:0 0 18px">Same Suggest Page pattern on real sites — form in, Yes / Later / No board out.</p>
+    <h2 id="examples" data-i18n="home.examples.h2">Live examples</h2>
+    <p class="lede" style="margin:0 0 18px" data-i18n="home.examples.lede">Same Suggest Page pattern on real sites — form in, Yes / Later / No board out.</p>
     <div class="example-grid">
       <article class="example-card">
         <h3>stevenphilley.com</h3>
-        <p>Personal site demo with public board.</p>
-        <p class="links"><a href="https://stevenphilley.com/suggest/">Suggest form</a> · <a href="https://stevenphilley.com/suggestions/">Board</a></p>
+        <p data-i18n="home.ex.sp.p">Personal site demo with public board.</p>
+        <p class="links"><a href="https://stevenphilley.com/suggest/" data-i18n="home.ex.form">Suggest form</a> · <a href="https://stevenphilley.com/suggestions/" data-i18n="home.ex.board">Board</a></p>
       </article>
       <article class="example-card">
         <h3>panatau.com</h3>
-        <p>Client site using Suggest + Suggestions pages.</p>
-        <p class="links"><a href="https://panatau.com/suggest.html">Suggest form</a> · <a href="https://panatau.com/suggestions.html">Board</a></p>
+        <p data-i18n="home.ex.pan.p">Client site using Suggest + Suggestions pages.</p>
+        <p class="links"><a href="https://panatau.com/suggest.html" data-i18n="home.ex.form">Suggest form</a> · <a href="https://panatau.com/suggestions.html" data-i18n="home.ex.board">Board</a></p>
       </article>
       <article class="example-card">
         <h3>suggestpage.com</h3>
-        <p>Product demo on this domain.</p>
-        <p class="links"><a href="/suggest/">Suggest form</a> · <a href="/suggestions/">Board</a></p>
+        <p data-i18n="home.ex.demo.p">Product demo on this domain.</p>
+        <p class="links"><a href="/suggest/" data-i18n="home.ex.form">Suggest form</a> · <a href="/suggestions/" data-i18n="home.ex.board">Board</a></p>
       </article>
     </div>
   </section>
 
-    <h2 id="includes">Site Care — not included</h2>
+    <h2 id="includes" data-i18n="home.not.h2">Site Care — not included</h2>
     <ul style="margin:0;padding-left:1.1rem;display:grid;gap:8px">
-      <li>Full redesigns, multi-page builds, or custom apps</li>
-      <li>Continuous chat with visitors (v1 is board-on-republish only)</li>
-      <li>Unlimited big content rewrites</li>
+      <li data-i18n="home.not.li1">Full redesigns, multi-page builds, or custom apps</li>
+      <li data-i18n="home.not.li2">Continuous chat with visitors (v1 is board-on-republish only)</li>
+      <li data-i18n="home.not.li3">Unlimited big content rewrites</li>
     </ul>
   </section>
 
   <section class="sec" aria-labelledby="statuses">
-    <h2 id="statuses">Yes / Later / No</h2>
+    <h2 id="statuses" data-i18n="home.status.h2">Yes / Later / No</h2>
     <table class="status-table">
       <thead>
-        <tr><th>Mark</th><th>Board</th><th>Live page</th></tr>
+        <tr><th data-i18n="home.status.mark">Mark</th><th data-i18n="home.status.board">Board</th><th data-i18n="home.status.page">Live page</th></tr>
       </thead>
       <tbody>
-        <tr><td>Yes</td><td>Approved / shipping</td><td>May get a small edit on republish</td></tr>
-        <tr><td>Later</td><td>Under consideration</td><td>No rewrite</td></tr>
-        <tr><td>No</td><td>Declined / archived (optional note)</td><td>No rewrite</td></tr>
+        <tr><td data-i18n="home.status.yes">Yes</td><td data-i18n="home.status.yes.board">Approved / shipping</td><td data-i18n="home.status.yes.page">May get a small edit on republish</td></tr>
+        <tr><td data-i18n="home.status.later">Later</td><td data-i18n="home.status.later.board">Under consideration</td><td data-i18n="home.status.later.page">No rewrite</td></tr>
+        <tr><td data-i18n="home.status.no">No</td><td data-i18n="home.status.no.board">Declined / archived (optional note)</td><td data-i18n="home.status.no.page">No rewrite</td></tr>
       </tbody>
     </table>
   </section>
 
   <section class="sec" aria-labelledby="faq">
-    <h2 id="faq">FAQ</h2>
+    <h2 id="faq" data-i18n="home.faq.h2">FAQ</h2>
     <ul class="faq">
-      <li><strong>When does setup start?</strong><span>Setup starts within 24h of payment. We’ll email from steven@coloritcompany.com to ask for your URL/domain, brand name, and a one-line purpose, then provision.</span></li>
-      <li><strong>Do I keep the files?</strong><span>Yes. Static files you can host on GitHub Pages (or similar). The public board is driven by <code>data.json</code>.</span></li>
-      <li><strong>How many status updates?</strong><span>Page Pack includes up to 12 Yes / Later / No updates per year. Site Care is monthly triage plus small Approved edits — status passes as needed.</span></li>
-      <li><strong>Is there a revision limit?</strong><span>No formal revision rounds. Page Pack’s 12/yr budget is for status updates; Site Care covers monthly triage and small edits from Yes ideas.</span></li>
-      <li><strong>Checkout?</strong><span>Use the Buy buttons above for Stripe Checkout. After payment you land on <code>/sell/thanks/</code>.</span></li>
-      <li><strong>Where’s the demo?</strong><span>On this site: <a href="/suggest/" style="color:var(--accent,#c8b48a)">/suggest/</a> + <a href="/suggestions/" style="color:var(--accent,#c8b48a)">/suggestions/</a>. Also <a href="https://stevenphilley.com/suggest/" style="color:var(--accent,#c8b48a)">stevenphilley.com</a> and <a href="https://panatau.com/suggest.html" style="color:var(--accent,#c8b48a)">panatau.com</a>.</span></li>
+      <li><strong data-i18n="home.faq.q1">When does setup start?</strong><span data-i18n="home.faq.a1">Setup starts within 24h of payment. We’ll email from steven@coloritcompany.com to ask for your URL/domain, brand name, and a one-line purpose, then provision.</span></li>
+      <li><strong data-i18n="home.faq.q2">Do I keep the files?</strong><span data-i18n-html="home.faq.a2">Yes. Static files you can host on GitHub Pages (or similar). The public board is driven by <code>data.json</code>.</span></li>
+      <li><strong data-i18n="home.faq.q3">How many status updates?</strong><span data-i18n="home.faq.a3">Page Pack includes up to 12 Yes / Later / No updates per year. Site Care is monthly triage plus small Approved edits — status passes as needed.</span></li>
+      <li><strong data-i18n="home.faq.q4">Is there a revision limit?</strong><span data-i18n="home.faq.a4">No formal revision rounds. Page Pack’s 12/yr budget is for status updates; Site Care covers monthly triage and small edits from Yes ideas.</span></li>
+      <li><strong data-i18n="home.faq.q5">Checkout?</strong><span data-i18n-html="home.faq.a5">Use the Buy buttons above for Stripe Checkout. After payment you land on <code>/sell/thanks/</code>.</span></li>
+      <li><strong data-i18n="home.faq.q6">Where’s the demo?</strong><span data-i18n-html="home.faq.a6">On this site: <a href="/suggest/" style="color:var(--accent,#c8b48a)">/suggest/</a> + <a href="/suggestions/" style="color:var(--accent,#c8b48a)">/suggestions/</a>. Also <a href="https://stevenphilley.com/suggest/" style="color:var(--accent,#c8b48a)">stevenphilley.com</a> and <a href="https://panatau.com/suggest.html" style="color:var(--accent,#c8b48a)">panatau.com</a>.</span></li>
     </ul>
   </section>
 
   <footer class="e-foot">
-    <span>Questions: <a href="mailto:steven@coloritcompany.com">steven@coloritcompany.com</a> · Color It Company</span>
-    <span><a href="/">Home</a> · <a href="/suggest/">Suggest</a> · </span>
+    <span data-i18n-html="home.foot.questions">Questions: <a href="mailto:steven@coloritcompany.com">steven@coloritcompany.com</a> · Color It Company</span>
+    <span><a href="/" data-i18n="nav.home">Home</a> · <a href="/suggest/" data-i18n="nav.suggest">Suggest</a> · <a href="/suggestions/" data-i18n="nav.suggestions">Suggestions</a></span>
   </footer>
 </div>
 <script>
@@ -362,15 +372,16 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
 })();
 </script>
 <script src="/js/sp-share.js" defer></script>
-  <footer class="site-legal-foot">
-    <a href="/terms/">Terms</a>
-    <a href="/privacy/">Privacy</a>
-    <a href="/aup/">Acceptable Use</a>
-    <a href="/refunds/">Refunds</a>
-    <a href="/cookies/">Cookies</a>
-    <a href="/copyright/">Copyright</a>
-    <a href="/legal/">Legal</a>
-    <a href="mailto:steven@coloritcompany.com">Contact</a>
+    <footer class="site-legal-foot">
+    <a href="/terms/" data-i18n="legal.terms">Terms</a>
+    <a href="/privacy/" data-i18n="legal.privacy">Privacy</a>
+    <a href="/aup/" data-i18n="legal.aup">Acceptable Use</a>
+    <a href="/refunds/" data-i18n="legal.refunds">Refunds</a>
+    <a href="/cookies/" data-i18n="legal.cookies">Cookies</a>
+    <a href="/copyright/" data-i18n="legal.copyright">Copyright</a>
+    <a href="/legal/" data-i18n="legal.legal">Legal</a>
+    <a href="mailto:steven@coloritcompany.com" data-i18n="legal.contact">Contact</a>
   </footer>
+<script src="/js/i18n.js" defer></script>
 </body>
 </html>

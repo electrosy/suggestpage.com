@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Suggestions — Suggest Page</title>
+<title data-i18n="board.title">Suggestions — Suggest Page</title>
 <meta name="description" content="Public ideas for suggestpage.com — Yes builds them, Later parks them here, No declines.">
 <link rel="canonical" href="https://suggestpage.com/suggestions/">
 <meta property="og:type" content="website">
@@ -34,6 +34,11 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
 .themes button{appearance:none;background:transparent;border:0;border-right:1px solid var(--line,#2c303a);color:var(--muted,#63666e);font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;padding:5px 10px;cursor:pointer;text-transform:uppercase}
 .themes button:last-child{border-right:0}
 .themes button[aria-pressed="true"]{color:var(--base-2,#14161c);background:var(--ink,#e8e6e1)}
+.langs{display:flex;gap:0;border:1px solid var(--line,#2c303a)}
+.langs button{appearance:none;background:transparent;border:0;border-right:1px solid var(--line,#2c303a);color:var(--muted,#63666e);font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;padding:5px 10px;cursor:pointer;text-transform:uppercase}
+.langs button:last-child{border-right:0}
+.langs button[aria-pressed="true"]{color:var(--base-2,#14161c);background:var(--ink,#e8e6e1)}
+
 .cta{margin:22px 0 0;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .cta a.btn{appearance:none;background:var(--ink,#e8e6e1);color:var(--base-2,#14161c);border:1px solid var(--ink,#e8e6e1);font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:12px 22px;text-decoration:none}
 .cta a.btn:hover{background:var(--accent,#c8b48a);border-color:var(--accent,#c8b48a)}
@@ -78,12 +83,17 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
 <body>
 <div class="e-wrap">
   <div class="e-top">
-    <a href="/">Suggest Page</a>
+    <a href="/" data-i18n="nav.brand">Suggest Page</a>
     <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
-      <a href="/">Home</a>
-      <a href="/suggest/">Suggest</a>
-      <a href="/suggestions/" aria-current="page">Suggestions</a>
-      <div class="themes" role="group" aria-label="Color theme">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/suggest/" data-i18n="nav.suggest">Suggest</a>
+      <a href="/suggestions/" aria-current="page" data-i18n="nav.suggestions">Suggestions</a>
+      <div class="langs" role="group" aria-label="Language" data-i18n-aria="lang.aria">
+        <button type="button" data-set-lang="en">EN</button>
+        <button type="button" data-set-lang="es">ES</button>
+        <button type="button" data-set-lang="ro">RO</button>
+      </div>
+      <div class="themes" role="group" aria-label="Color theme" data-i18n-aria="theme.aria">
         <button type="button" data-set-theme="neon">Neon</button>
         <button type="button" data-set-theme="emerald">Emerald</button>
         <button type="button" data-set-theme="dusk">Dusk</button>
@@ -95,31 +105,30 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
   </div>
 
   <header class="e-hero">
-    <p class="e-kicker">Site — Public board</p>
-    <h1>Suggestions</h1>
-    <p class="lede">Public ideas board. Yes builds them; Later parks them here; No declines. Add yours on <a href="/suggest/">/suggest/</a>.</p>
+    <p class="e-kicker" data-i18n="board.kicker">Site — Public board</p>
+    <h1 data-i18n="board.h1">Suggestions</h1>
+    <p class="lede" data-i18n-html="board.lede">Public ideas board. Yes builds them; Later parks them here; No declines. Add yours on <a href="/suggest/">/suggest/</a>.</p>
     <div class="cta">
-      <a class="btn" href="/suggest/">Add a suggestion</a>
-      <a class="ghost" href="/">Home</a>
+      <a class="btn" href="/suggest/" data-i18n="board.cta_add">Add a suggestion</a>
+      <a class="ghost" href="/" data-i18n="board.cta_home">Home</a>
     </div>
   </header>
 
   <div id="board" aria-live="polite">
-    <p class="empty">Loading suggestions…</p>
+    <p class="empty" data-i18n="board.loading">Loading suggestions…</p>
   </div>
 
     <aside class="sell-aside" style="margin:28px 0 0;padding:16px 18px;border:1px solid var(--line,#2c303a);max-width:66ch;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.7;color:var(--ink-soft,#9b9a96)">
-    <strong style="color:var(--ink,#e8e6e1);font-weight:500">Suggestion form + live Yes / Later / No board for your domain.</strong>
+    <strong style="color:var(--ink,#e8e6e1);font-weight:500" data-i18n="board.aside">Suggestion form + live Yes / Later / No board for your domain.</strong>
   </aside>
 
   <footer class="e-foot">
-    <a href="/">Home</a>
-    <a href="/">Home</a>
-    <a href="/suggest/">Suggest</a>
-    <a href="/">Home</a>
-    
+    <a href="/" data-i18n="nav.home">Home</a>
+    <a href="/suggest/" data-i18n="nav.suggest">Suggest</a>
+    <a href="/suggestions/" data-i18n="nav.suggestions">Suggestions</a>
   </footer>
 </div>
+<script src="/js/i18n.js"></script>
 <script>
 (function(){
   var KEY='sp-theme';
@@ -138,13 +147,23 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
   });
   paintTheme();
 
-  var STATUS_LABEL={
-    pending:'Pending',
-    later:'Later',
-    approved:'Approved',
-    done:'Done',
-    declined:'Declined'
-  };
+  function statusLabel(st){
+    var key='board.status.'+st;
+    if(window.SP_I18N && typeof window.SP_I18N.t==='function'){
+      var v=window.SP_I18N.t(key);
+      if(v && v!==key) return v;
+    }
+    var fallback={pending:'Pending',later:'Later',approved:'Approved',done:'Done',declined:'Declined'};
+    return fallback[st]||st;
+  }
+
+  function tx(key, fallback){
+    if(window.SP_I18N && typeof window.SP_I18N.t==='function'){
+      var v=window.SP_I18N.t(key);
+      if(v && v!==key) return v;
+    }
+    return fallback;
+  }
 
   function esc(s){
     return String(s==null?'':s)
@@ -161,28 +180,31 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
     return '';
   }
 
+  var lastItems=null;
+
   function cardHtml(item, quiet){
     var st=(item.status||'pending').toLowerCase();
-    if(!STATUS_LABEL[st]) st='pending';
+    if(['pending','later','approved','done','declined'].indexOf(st)===-1) st='pending';
     var href=safeHref(item.page);
     var pageBit=href?'<a href="'+esc(href)+'">'+esc(item.page)+'</a>':'';
-    var nameBit=item.name?esc(item.name):'Anonymous';
+    var nameBit=item.name?esc(item.name):esc(tx('board.anonymous','Anonymous'));
     var note=item.note?'<p class="note">'+esc(item.note)+'</p>':'';
     var dates=[];
-    if(item.submitted) dates.push('Submitted '+esc(item.submitted));
-    if(item.updated) dates.push('Updated '+esc(item.updated));
+    if(item.submitted) dates.push(tx('board.submitted','Submitted ')+esc(item.submitted));
+    if(item.updated) dates.push(tx('board.updated','Updated ')+esc(item.updated));
     return '<article class="card'+(quiet?' quiet':'')+'">'
-      +'<div class="meta"><span class="badge '+st+'">'+STATUS_LABEL[st]+'</span></div>'
-      +'<h2>'+esc(item.suggestion||'(no text)')+'</h2>'
+      +'<div class="meta"><span class="badge '+st+'">'+esc(statusLabel(st))+'</span></div>'
+      +'<h2>'+esc(item.suggestion||tx('board.no_text','(no text)'))+'</h2>'
       +note
       +'<p class="foot"><span>'+nameBit+'</span>'+(pageBit?pageBit:'')+(dates.length?'<span>'+dates.join(' · ')+'</span>':'')+'</p>'
       +'</article>';
   }
 
   function render(items){
+    lastItems=items;
     var board=document.getElementById('board');
     if(!Array.isArray(items) || !items.length){
-      board.innerHTML='<p class="empty">No suggestions on the board yet. <a href="/suggest/">Send one</a> — Later and Pending show up here.</p>';
+      board.innerHTML='<p class="empty">'+tx('board.empty','No suggestions on the board yet. <a href="/suggest/">Send one</a> — Later and Pending show up here.')+'</p>';
       return;
     }
     var open=[], motion=[], declined=[];
@@ -194,44 +216,72 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
       else open.push(it);
     });
     var html='';
-    html+='<p class="band">Later + Pending</p>';
+    html+='<p class="band">'+esc(tx('board.band_open','Later + Pending'))+'</p>';
     if(open.length){
       html+='<div class="list">'+open.map(function(it){return cardHtml(it,false);}).join('')+'</div>';
     }else{
-      html+='<p class="empty">Nothing parked or waiting. <a href="/suggest/">Add an idea</a>.</p>';
+      html+='<p class="empty">'+tx('board.empty_open','Nothing parked or waiting. <a href="/suggest/">Add an idea</a>.')+'</p>';
     }
-    html+='<p class="band quiet">In motion / shipped</p>';
+    html+='<p class="band quiet">'+esc(tx('board.band_motion','In motion / shipped'))+'</p>';
     if(motion.length){
       html+='<div class="list">'+motion.map(function(it){return cardHtml(it,true);}).join('')+'</div>';
     }else{
-      html+='<p class="empty">No approved or done items yet.</p>';
+      html+='<p class="empty">'+esc(tx('board.empty_motion','No approved or done items yet.'))+'</p>';
     }
     if(declined.length){
-      html+='<details class="declined-wrap"><summary><span>Declined</span><span>'+declined.length+'</span></summary><div class="inner list">'
+      html+='<details class="declined-wrap"><summary><span>'+esc(tx('board.declined','Declined'))+'</span><span>'+declined.length+'</span></summary><div class="inner list">'
         +declined.map(function(it){return cardHtml(it,true);}).join('')
         +'</div></details>';
     }
     board.innerHTML=html;
   }
 
+  var loadError=false;
+
+  function showError(){
+    loadError=true;
+    lastItems=null;
+    document.getElementById('board').innerHTML='<p class="empty">'+tx('board.error','Couldn\'t load the board right now. Try again in a moment, or <a href="/suggest/">send a suggestion</a> anyway.')+'</p>';
+  }
+
   fetch('data.json',{cache:'no-store'})
     .then(function(r){ if(!r.ok) throw new Error('bad status'); return r.json(); })
-    .then(render)
-    .catch(function(){
-      document.getElementById('board').innerHTML='<p class="empty">Couldn’t load the board right now. Try again in a moment, or <a href="/suggest/">send a suggestion</a> anyway.</p>';
-    });
+    .then(function(items){ loadError=false; render(items); })
+    .catch(showError);
+
+  function onLang(){
+    if(loadError) showError();
+    else if(lastItems!==null) render(lastItems);
+  }
+  var langBound=false;
+  function bindLang(){
+    if(langBound) return true;
+    if(!(window.SP_I18N && typeof window.SP_I18N.onChange==='function')) return false;
+    window.SP_I18N.onChange(onLang);
+    langBound=true;
+    onLang();
+    return true;
+  }
+  if(!bindLang()){
+    document.addEventListener('DOMContentLoaded',function(){ bindLang(); });
+    var tries=0;
+    var iv=setInterval(function(){
+      tries++;
+      if(bindLang() || tries>40) clearInterval(iv);
+    },50);
+  }
 })();
 </script>
 <script src="/js/sp-share.js" defer></script>
-  <footer class="site-legal-foot">
-    <a href="/terms/">Terms</a>
-    <a href="/privacy/">Privacy</a>
-    <a href="/aup/">Acceptable Use</a>
-    <a href="/refunds/">Refunds</a>
-    <a href="/cookies/">Cookies</a>
-    <a href="/copyright/">Copyright</a>
-    <a href="/legal/">Legal</a>
-    <a href="mailto:steven@coloritcompany.com">Contact</a>
+    <footer class="site-legal-foot">
+    <a href="/terms/" data-i18n="legal.terms">Terms</a>
+    <a href="/privacy/" data-i18n="legal.privacy">Privacy</a>
+    <a href="/aup/" data-i18n="legal.aup">Acceptable Use</a>
+    <a href="/refunds/" data-i18n="legal.refunds">Refunds</a>
+    <a href="/cookies/" data-i18n="legal.cookies">Cookies</a>
+    <a href="/copyright/" data-i18n="legal.copyright">Copyright</a>
+    <a href="/legal/" data-i18n="legal.legal">Legal</a>
+    <a href="mailto:steven@coloritcompany.com" data-i18n="legal.contact">Contact</a>
   </footer>
 </body>
 </html>

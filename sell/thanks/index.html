@@ -29,28 +29,45 @@ h1{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:clamp(48
 .checkout-legal{margin:14px 0 0;font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.6;color:var(--muted,#63666e)}
 .checkout-legal a{color:var(--accent,#c8b48a);text-underline-offset:3px}
 
+.langs{display:flex;gap:0;border:1px solid var(--line,#2c303a)}
+.langs button{appearance:none;background:transparent;border:0;border-right:1px solid var(--line,#2c303a);color:var(--muted,#63666e);font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;padding:5px 10px;cursor:pointer;text-transform:uppercase}
+.langs button:last-child{border-right:0}
+.langs button[aria-pressed="true"]{color:var(--base-2,#14161c);background:var(--ink,#e8e6e1)}
+
+.e-top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:0 0 18px;margin:0 0 18px;border-bottom:1px solid var(--line,#2c303a);font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.e-top a{color:var(--ink-soft,#9b9a96);text-decoration:none}
+.e-top a:hover{color:inherit}
 </style>
 </head>
 <body>
 <div class="e-wrap">
-  <p class="kicker">Color It Company · Checkout</p>
-  <h1>Thanks — you’re in</h1>
-  <p class="lede">Payment received. We’ll email <strong>steven@coloritcompany.com</strong> confirmation and start your suggestion page setup. Questions anytime at that same address.</p>
-  <p class="checkout-legal">See <a href="/terms/">Terms</a>, <a href="/privacy/">Privacy</a>, and <a href="/refunds/">Refunds</a>.</p>
+  <div class="e-top">
+    <a href="/" data-i18n="nav.brand">Suggest Page</a>
+    <div class="langs" role="group" aria-label="Language" data-i18n-aria="lang.aria">
+      <button type="button" data-set-lang="en">EN</button>
+      <button type="button" data-set-lang="es">ES</button>
+      <button type="button" data-set-lang="ro">RO</button>
+    </div>
+  </div>
+  <p class="kicker" data-i18n="thanks.kicker">Color It Company · Checkout</p>
+  <h1 data-i18n="thanks.h1">Thanks — you’re in</h1>
+  <p class="lede" data-i18n-html="thanks.lede">Payment received. We’ll email <strong>steven@coloritcompany.com</strong> confirmation and start your suggestion page setup. Questions anytime at that same address.</p>
+  <p class="checkout-legal" data-i18n-html="thanks.legal">See <a href="/terms/">Terms</a>, <a href="/privacy/">Privacy</a>, and <a href="/refunds/">Refunds</a>.</p>
   <div class="actions">
-    <a href="/suggest/">See the demo form</a>
-    <a class="ghost" href="/">Back to the offer</a>
+    <a href="/suggest/" data-i18n="thanks.demo">See the demo form</a>
+    <a class="ghost" href="/" data-i18n="thanks.back">Back to the offer</a>
   </div>
 </div>
-  <footer class="site-legal-foot">
-    <a href="/terms/">Terms</a>
-    <a href="/privacy/">Privacy</a>
-    <a href="/aup/">Acceptable Use</a>
-    <a href="/refunds/">Refunds</a>
-    <a href="/cookies/">Cookies</a>
-    <a href="/copyright/">Copyright</a>
-    <a href="/legal/">Legal</a>
-    <a href="mailto:steven@coloritcompany.com">Contact</a>
+    <footer class="site-legal-foot">
+    <a href="/terms/" data-i18n="legal.terms">Terms</a>
+    <a href="/privacy/" data-i18n="legal.privacy">Privacy</a>
+    <a href="/aup/" data-i18n="legal.aup">Acceptable Use</a>
+    <a href="/refunds/" data-i18n="legal.refunds">Refunds</a>
+    <a href="/cookies/" data-i18n="legal.cookies">Cookies</a>
+    <a href="/copyright/" data-i18n="legal.copyright">Copyright</a>
+    <a href="/legal/" data-i18n="legal.legal">Legal</a>
+    <a href="mailto:steven@coloritcompany.com" data-i18n="legal.contact">Contact</a>
   </footer>
+<script src="/js/i18n.js" defer></script>
 </body>
 </html>
