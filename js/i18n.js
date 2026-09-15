@@ -750,6 +750,28 @@
     }
   }
 
+  var LEGAL_SLUGS = ['terms', 'privacy', 'aup', 'refunds', 'cookies', 'copyright', 'legal'];
+  var LEGAL_HREF_RE = /^\/(?:(es|ro|he|tr)\/)?(terms|privacy|aup|refunds|cookies|copyright|legal)\/?$/i;
+
+  function rewriteLegalHrefs(root) {
+    var scope = root || document;
+    var list = scope.querySelectorAll('a[href]');
+    var i, a, href, path, m, slug, prefix;
+    for (i = 0; i < list.length; i++) {
+      a = list[i];
+      href = a.getAttribute('href');
+      if (!href) continue;
+      if (/^(mailto:|tel:|https?:|\/\/)/i.test(href)) continue;
+      if (/stripe\.com/i.test(href)) continue;
+      path = href.split('#')[0].split('?')[0];
+      m = path.match(LEGAL_HREF_RE);
+      if (!m) continue;
+      slug = m[2].toLowerCase();
+      prefix = (current === 'en' ? '' : '/' + current);
+      a.setAttribute('href', prefix + '/' + slug + '/');
+    }
+  }
+
   function apply(root) {
     var scope = root || document;
     var el, key, i, list;
@@ -810,6 +832,7 @@
       document.documentElement.setAttribute('dir', 'ltr');
     }
     paintLangButtons(scope);
+    rewriteLegalHrefs(scope);
   }
 
   function setLang(code) {
@@ -856,6 +879,7 @@
     setLang: setLang,
     getLang: getLang,
     apply: apply,
+    rewriteLegalHrefs: rewriteLegalHrefs,
     onChange: onChange,
     DICTS: DICTS,
     SUPPORTED: SUPPORTED
