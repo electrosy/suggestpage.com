@@ -21,8 +21,6 @@
 .site-legal-foot{margin-top:48px;padding:18px 0 28px;border-top:1px solid var(--line,#2c303a);display:flex;flex-wrap:wrap;gap:10px 16px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 .site-legal-foot a{color:var(--ink-soft,#9b9a96);text-decoration:none}
 .site-legal-foot a:hover{color:var(--accent,#c8b48a)}
-.checkout-legal{margin:14px 0 0;font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.6;color:var(--muted,#63666e)}
-.checkout-legal a{color:var(--accent,#c8b48a);text-underline-offset:3px}
 
 </style>
 </head>
@@ -52,12 +50,12 @@
 <li><strong>Service operations data:</strong> publish/triage notes, Yes/Later/No decisions we help implement under Site Care.  </li>
 </ul>
 <h3>2.2 Visitors who submit suggestions</h3>
-<p>Typical Suggest Page forms send submissions through a form-delivery provider (currently <strong>FormSubmit</strong>) to operational email. We (and/or the customer, depending on setup) may receive:</p>
+<p>Typical Suggest Page forms send submissions through a form-delivery provider (currently <strong>Web3Forms</strong>) to operational email. We (and/or the customer, depending on setup) may receive:</p>
 <ul>
 <li><strong>Idea text</strong> (required suggestion content);  </li>
 <li><strong>Optional fields</strong> — name, email, and/or page URL when the form includes them;  </li>
 <li><strong>Technical / operational metadata</strong> — hidden site identifier, submission time, and form-handler metadata;  </li>
-<li><strong>Decision-link beacons</strong> — when an operator clicks a signed Yes / Later / No link, FormSubmit may receive site id, suggestion id, action, and token for triage (not a visitor login).  </li>
+<li><strong>Decision-link beacons</strong> — when an operator clicks a signed Yes / Later / No link, Web3Forms may receive site id, suggestion id, action, and token for triage (not a visitor login).  </li>
 </ul>
 <p><strong>Public board:</strong> Approved and other statused ideas may be published in static files (for example <code>suggestions/data.json</code> on GitHub Pages), which can include suggestion text, optional name, page, status, notes, and dates.</p>
 <p>We do <strong>not</strong> require visitors to create an account or log in to submit a suggestion.</p>
@@ -87,7 +85,7 @@
 <p>We may share information with:</p>
 <ul>
 <li><strong>Stripe</strong> — payment processing via Stripe Payment Links / Checkout / Customer Portal (card data stays with Stripe);  </li>
-<li><strong>FormSubmit</strong> — form delivery and decision-link beacons for suggestion triage email;  </li>
+<li><strong>Web3Forms</strong> — form delivery and decision-link beacons for suggestion triage email;  </li>
 <li><strong>Hosting / CDN</strong> — for example GitHub Pages for static site files;  </li>
 <li><strong>Email and infrastructure providers</strong> — to deliver messages and host or deploy static sites;  </li>
 <li><strong>Internal automation</strong> — teammate bots or operators may read triage email and update the public board; there is no user-facing generative AI product on the pages themselves;  </li>
