@@ -43,6 +43,8 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
 .sec:last-of-type{border-bottom:0}
 .sec h2{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:clamp(28px,5vw,40px);letter-spacing:.02em;margin:0 0 16px}
 .sec p,.sec li{font-family:"IBM Plex Mono",monospace;font-size:13px;line-height:1.7;color:var(--ink-soft,#9b9a96)}
+.sec p + p{margin-top:12px}
+.sec strong{color:var(--ink,#e8e6e1);font-weight:500}
 .steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:step}
 .steps li{counter-increment:step;padding-left:2.6rem;position:relative}
 .steps li::before{content:counter(step);position:absolute;left:0;top:0;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--accent,#c8b48a);border:1px solid var(--line,#2c303a);width:1.8rem;height:1.8rem;display:flex;align-items:center;justify-content:center}
@@ -106,6 +108,22 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "No formal revision rounds. Page Pack’s 12/yr budget is for status updates; Site Care covers monthly triage and small edits from Yes ideas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Page Pack include a domain?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Domain registration and renewal are separate (~$10–20/yr typical). Suggest Page / Color It Company fees do not include buying a domain name. Exact price depends on the TLD and registrar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you set up DNS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We provide the records and help you point the domain or subdomain at the GitHub Pages site during setup. Connecting DNS is part of setup for Page Pack / Site Care; registering and renewing the domain is your responsibility unless you already have one."
           }
         },
         {
@@ -263,6 +281,16 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
     </div>
   </section>
 
+  <section class="sec" id="domain" aria-labelledby="domain-h">
+    <h2 id="domain-h">Domain setup</h2>
+    <p><strong>You own the domain.</strong> Suggest Page / Color It Company fees do not include buying a domain name.</p>
+    <p><strong>Typical cost.</strong> Domains usually run about $10–20 per year at a normal registrar (GoDaddy, Namecheap, Google Domains successors, Cloudflare Registrar, and similar). Exact price depends on the TLD (.com vs others) and the registrar.</p>
+    <p><strong>Hosting.</strong> The static suggestion page + board is meant for GitHub Pages (free) or similar static hosting. Hosting cost is separate from the domain and is typically $0 on GitHub Pages.</p>
+    <p><strong>What we do in setup.</strong> After payment we ask for your domain (or subdomain), brand name, and a one-line purpose. We provision the page files and give you DNS instructions (usually a CNAME or A records for GitHub Pages). Connecting DNS is part of setup for Page Pack / Site Care; registering and renewing the domain is your responsibility unless you already have one.</p>
+    <p><strong>Already have a domain?</strong> Prefer that — lower friction. Subdomains (for example <code>ideas.yoursite.com</code>) work fine.</p>
+    <p><strong>Not included.</strong> Paying registrar invoices, transferring domains between registrars, complex multi-domain setups, or custom non-static hosting.</p>
+  </section>
+
   <section class="sec" aria-labelledby="includes">
     <h2 id="includes">Site Care — not included</h2>
     <ul style="margin:0;padding-left:1.1rem;display:grid;gap:8px">
@@ -290,6 +318,8 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
     <h2 id="faq">FAQ</h2>
     <ul class="faq">
       <li><strong>When does setup start?</strong><span>Setup starts within 24h of payment. We’ll email from steven@coloritcompany.com to ask for your URL/domain, brand name, and a one-line purpose, then provision.</span></li>
+      <li><strong>Does Page Pack include a domain?</strong><span>No. Domain registration and renewal are separate (~$10–20/yr typical). Suggest Page / Color It Company fees do not include buying a domain name. See <a href="#domain" style="color:var(--accent,#c8b48a)">Domain setup</a>.</span></li>
+      <li><strong>Do you set up DNS?</strong><span>Yes. We provide the records and help you point the domain or subdomain at the GitHub Pages site during setup.</span></li>
       <li><strong>Do I keep the files?</strong><span>Yes. Static files you can host on GitHub Pages (or similar). The public board is driven by <code>data.json</code>.</span></li>
       <li><strong>How many status updates?</strong><span>Page Pack includes up to 12 Yes / Later / No updates per year. Site Care is monthly triage plus small Approved edits — status passes as needed.</span></li>
       <li><strong>Is there a revision limit?</strong><span>No formal revision rounds. Page Pack’s 12/yr budget is for status updates; Site Care covers monthly triage and small edits from Yes ideas.</span></li>
