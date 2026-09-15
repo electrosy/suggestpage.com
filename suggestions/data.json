@@ -4,9 +4,10 @@
     "suggestion": "E2E Web3Forms test from Suggest Box Monitor/Router for /suggest/; marked please ignore.",
     "page": "/suggest/",
     "name": "Suggest Box Monitor/Router",
-    "status": "pending",
-    "note": "First-hop E2E SUCCESS via Web3Forms to steven@coloritcompany.com",
+    "status": "later",
+    "note": "Decision E2E: Later via signed link (please ignore)",
     "submitted": "2026-09-15",
-    "updated": "2026-09-15"
+    "updated": "2026-09-15",
+    "decidedAt": "2026-09-15T03:30:00Z"
   }
 ]
