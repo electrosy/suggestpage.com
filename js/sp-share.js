@@ -1,9 +1,10 @@
-/*! sp-share.js — Share control with current theme in the URL.
- *  Share URL = canonical page URL with theme param set/replaced (no duplicates).
- *  Site pages: ?theme=<neon|emerald|dusk|sage|tide|sand>
+/*! sp-share.js — Share control with current theme + language in the URL.
+ *  Share URL = canonical page URL with theme and lang params set/replaced (no duplicates).
+ *  Site pages: ?theme=<neon|emerald|dusk|sage|tide|sand>&lang=<en|es|ro|he|tr>
  *  circular-calendar.html: ?theme=<dial skin> (brass|led|vapor|hallow|xmas|neon)
  *  Page-mode flags on <html> (not Share controls): data-sp-share="dial"|"markets".
  *  Optional: data-sp-share-param="sp_theme" on <html> to force that query key.
+ *  Language comes from SP_I18N.getLang(), else localStorage sp-lang, else <html lang>.
  */
 (function () {
   "use strict";
@@ -49,6 +50,25 @@
     }
   }
 
+  var LANGS = ["en", "es", "ro", "he", "tr"];
+
+  function currentLang() {
+    try {
+      if (window.SP_I18N && typeof window.SP_I18N.getLang === "function") {
+        var fromApi = String(window.SP_I18N.getLang() || "").toLowerCase();
+        if (LANGS.indexOf(fromApi) > -1) return fromApi;
+      }
+    } catch (e) {}
+    try {
+      var stored = String(localStorage.getItem("sp-lang") || "").toLowerCase();
+      if (LANGS.indexOf(stored) > -1) return stored;
+    } catch (e2) {}
+    var htmlLang = String(document.documentElement.getAttribute("lang") || "en")
+      .toLowerCase()
+      .split("-")[0];
+    return LANGS.indexOf(htmlLang) > -1 ? htmlLang : "en";
+  }
+
   function themedShareUrl(baseHref) {
     var url;
     try {
@@ -58,10 +78,13 @@
     }
     var key = themeParamName();
     var theme = currentTheme();
-    // Replace theme / sp_theme cleanly — no duplicate keys.
+    var lang = currentLang();
+    // Replace theme / sp_theme / lang cleanly — no duplicate keys.
     url.searchParams.delete("theme");
     url.searchParams.delete("sp_theme");
+    url.searchParams.delete("lang");
     url.searchParams.set(key, theme);
+    url.searchParams.set("lang", lang);
     return url.toString();
   }
 
@@ -220,15 +243,18 @@
     btn.type = "button";
     btn.className = "sp-share-btn" + (extraClass ? " " + extraClass : "");
     btn.setAttribute("data-sp-share", "");
-    btn.setAttribute("aria-label", "Share this page with current theme");
-    btn.title = "Share link with current theme";
+    btn.setAttribute("aria-label", "Share this page with current theme and language");
+    btn.title = "Share link with current theme and language";
     btn.textContent = "Share";
     return btn;
   }
 
   function suggestHref() {
     var page = location.pathname + (location.search || "");
-    return "/suggest/?page=" + encodeURIComponent(page);
+    var href = "/suggest/?page=" + encodeURIComponent(page);
+    var lang = currentLang();
+    if (lang && lang !== "en") href += "&lang=" + encodeURIComponent(lang);
+    return href;
   }
 
   function makeSuggestLink(extraClass) {
@@ -286,6 +312,7 @@
   window.spShare = {
     url: themedShareUrl,
     theme: currentTheme,
+    lang: currentLang,
     share: function () {
       shareFrom(null);
     },
