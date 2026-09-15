@@ -11,11 +11,13 @@
 <meta property="og:title" content="Suggestion pages with a live Yes / Later / No board — Color It Company">
 <meta property="og:description" content="Buy a static suggestion page for your URL. Visitors send ideas; you mark Yes, Later, or No; the public board updates when the site republishes.">
 <meta property="og:url" content="https://suggestpage.com/">
+<meta property="og:image" content="https://suggestpage.com/images/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Suggestion pages with a live Yes / Later / No board — Color It Company">
 <meta name="twitter:description" content="Buy a static suggestion page for your URL. Visitors send ideas; you mark Yes, Later, or No; the public board updates when the site republishes.">
+<meta name="twitter:image" content="https://suggestpage.com/images/og.png">
 <script src="/js/sp-theme-boot.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,6 +48,7 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
 .sec:last-of-type{border-bottom:0}
 .sec h2{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:clamp(28px,5vw,40px);letter-spacing:.02em;margin:0 0 16px}
 .sec p,.sec li{font-family:"IBM Plex Mono",monospace;font-size:13px;line-height:1.7;color:var(--ink-soft,#9b9a96)}
+.sec a{color:var(--accent,#c8b48a);text-underline-offset:3px}
 .steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:step}
 .steps li{counter-increment:step;padding-left:2.6rem;position:relative}
 .steps li::before{content:counter(step);position:absolute;left:0;top:0;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--accent,#c8b48a);border:1px solid var(--line,#2c303a);width:1.8rem;height:1.8rem;display:flex;align-items:center;justify-content:center}
@@ -93,6 +96,17 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
 {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "Suggest Page",
+      "url": "https://suggestpage.com/",
+      "description": "A static suggestion form with a public Yes / Later / No board.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Color It Company",
+        "email": "steven@coloritcompany.com"
+      }
+    },
     {
       "@type": "FAQPage",
       "mainEntity": [
@@ -142,6 +156,22 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "See suggestpage.com /suggest/ and /suggestions/, plus live examples on stevenphilley.com and panatau.com."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Page Pack include a domain?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Domain registration and renewal are separate (~$10–20/yr typical). Suggest Page / Color It Company fees do not include buying a domain name. Details are on /sell/#domain."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you set up DNS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We provide the records and help you point the domain or subdomain at the GitHub Pages site during setup. Connecting DNS is part of Page Pack / Site Care; registering and renewing the domain is your responsibility unless you already have one."
           }
         }
       ]
@@ -216,6 +246,7 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
       <a href="/suggest/" data-i18n="nav.suggest">Suggest</a>
       <a href="/suggestions/" data-i18n="nav.suggestions">Suggestions</a>
       <a href="/" aria-current="page" data-i18n="nav.offer">Offer</a>
+      <a href="/sell/" data-i18n="nav.sell">Sell</a>
       <div class="langs" role="group" aria-label="Language" data-i18n-aria="lang.aria">
         <button type="button" data-set-lang="en">EN</button>
         <button type="button" data-set-lang="es">ES</button>
@@ -346,12 +377,14 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
       <li><strong data-i18n="home.faq.q4">Is there a revision limit?</strong><span data-i18n="home.faq.a4">No formal revision rounds. Page Pack’s 12/yr budget is for status updates; Site Care covers monthly triage and small edits from Yes ideas.</span></li>
       <li><strong data-i18n="home.faq.q5">Checkout?</strong><span data-i18n-html="home.faq.a5">Use the Buy buttons above for Stripe Checkout. After payment you land on <code>/sell/thanks/</code>.</span></li>
       <li><strong data-i18n="home.faq.q6">Where’s the demo?</strong><span data-i18n-html="home.faq.a6">On this site: <a href="/suggest/" style="color:var(--accent,#c8b48a)">/suggest/</a> + <a href="/suggestions/" style="color:var(--accent,#c8b48a)">/suggestions/</a>. Also <a href="https://stevenphilley.com/suggest/" style="color:var(--accent,#c8b48a)">stevenphilley.com</a> and <a href="https://panatau.com/suggest.html" style="color:var(--accent,#c8b48a)">panatau.com</a>.</span></li>
+      <li><strong data-i18n="home.faq.q7">Does Page Pack include a domain?</strong><span data-i18n-html="home.faq.a7">No. Domain registration and renewal are separate (~$10–20/yr typical). Suggest Page / Color It Company fees do not include buying a domain name. Details are on <a href="/sell/#domain">/sell/#domain</a>.</span></li>
+      <li><strong data-i18n="home.faq.q8">Do you set up DNS?</strong><span data-i18n="home.faq.a8">Yes. We provide the records and help you point the domain or subdomain at the GitHub Pages site during setup. Connecting DNS is part of Page Pack / Site Care; registering and renewing the domain is your responsibility unless you already have one.</span></li>
     </ul>
   </section>
 
   <footer class="e-foot">
     <span data-i18n-html="home.foot.questions">Questions: <a href="mailto:steven@coloritcompany.com">steven@coloritcompany.com</a> · Color It Company</span>
-    <span><a href="/" data-i18n="nav.home">Home</a> · <a href="/suggest/" data-i18n="nav.suggest">Suggest</a> · <a href="/suggestions/" data-i18n="nav.suggestions">Suggestions</a></span>
+    <span><a href="/" data-i18n="nav.home">Home</a> · <a href="/sell/" data-i18n="nav.sell">Sell</a> · <a href="/suggest/" data-i18n="nav.suggest">Suggest</a> · <a href="/suggestions/" data-i18n="nav.suggestions">Suggestions</a></span>
   </footer>
 </div>
 <script>
