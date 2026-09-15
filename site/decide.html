@@ -21,6 +21,13 @@ h1{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:clamp(40
 .status.bad{border-color:color-mix(in srgb,#e08a8a 55%,var(--line,#2c303a));color:#e08a8a}
 .badge{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;border:1px solid var(--line,#2c303a);margin:0 0 14px}
 a{color:var(--accent,#c8b48a)}
+
+.site-legal-foot{margin-top:48px;padding:18px 0 28px;border-top:1px solid var(--line,#2c303a);display:flex;flex-wrap:wrap;gap:10px 16px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.site-legal-foot a{color:var(--ink-soft,#9b9a96);text-decoration:none}
+.site-legal-foot a:hover{color:var(--accent,#c8b48a)}
+.checkout-legal{margin:14px 0 0;font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.6;color:var(--muted,#63666e)}
+.checkout-legal a{color:var(--accent,#c8b48a);text-underline-offset:3px}
+
 </style>
 </head>
 <body>
@@ -115,5 +122,15 @@ a{color:var(--accent,#c8b48a)}
   status.className = 'status ok';
 })();
 </script>
+  <footer class="site-legal-foot">
+    <a href="/terms/">Terms</a>
+    <a href="/privacy/">Privacy</a>
+    <a href="/aup/">Acceptable Use</a>
+    <a href="/refunds/">Refunds</a>
+    <a href="/cookies/">Cookies</a>
+    <a href="/copyright/">Copyright</a>
+    <a href="/legal/">Legal</a>
+    <a href="mailto:steven@coloritcompany.com">Contact</a>
+  </footer>
 </body>
 </html>
