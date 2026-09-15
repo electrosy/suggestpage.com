@@ -3,19 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Suggestion pages with a live Yes / Later / No board — Color It Company</title>
-<meta name="description" content="Buy a static suggestion page for your URL. Visitors send ideas; you mark Yes, Later, or No; the public board updates when the site republishes. Page Pack $39/yr or Site Care $39/mo.">
+<title>Suggest Page — a static suggestion form with a live Yes / Later / No board</title>
+<meta name="description" content="A public suggestion box for your URL. Visitors send ideas; you mark Yes, Later, or No; the board updates when the site republishes. Try the live demo, then buy on /sell/.">
 <link rel="canonical" href="https://suggestpage.com/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Color It Company">
-<meta property="og:title" content="Suggestion pages with a live Yes / Later / No board — Color It Company">
-<meta property="og:description" content="Buy a static suggestion page for your URL. Visitors send ideas; you mark Yes, Later, or No; the public board updates when the site republishes.">
+<meta property="og:site_name" content="Suggest Page">
+<meta property="og:title" content="Suggest Page — a static suggestion form with a live Yes / Later / No board">
+<meta property="og:description" content="Visitors send ideas for your site. You mark Yes, Later, or No. The public board updates when the site republishes.">
 <meta property="og:url" content="https://suggestpage.com/">
+<meta property="og:image" content="https://suggestpage.com/images/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Suggestion pages with a live Yes / Later / No board — Color It Company">
-<meta name="twitter:description" content="Buy a static suggestion page for your URL. Visitors send ideas; you mark Yes, Later, or No; the public board updates when the site republishes.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Suggest Page — a static suggestion form with a live Yes / Later / No board">
+<meta name="twitter:description" content="Visitors send ideas for your site. You mark Yes, Later, or No. The public board updates when the site republishes.">
+<meta name="twitter:image" content="https://suggestpage.com/images/og.png">
 <script src="/js/sp-theme-boot.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +35,11 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
 .e-hero .lede{max-width:62ch;margin:18px 0 0;font-family:"IBM Plex Mono",monospace;font-size:13.5px;line-height:1.7;color:var(--ink-soft,#9b9a96)}
 .e-hero .demo{max-width:62ch;margin:14px 0 0;font-family:"IBM Plex Mono",monospace;font-size:12.5px;line-height:1.65;color:var(--ink,#e8e6e1)}
 .e-hero .demo a{color:var(--accent,#c8b48a);text-underline-offset:3px}
+.cta{margin:22px 0 0;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.cta a.btn{appearance:none;background:var(--ink,#e8e6e1);color:var(--base-2,#14161c);border:1px solid var(--ink,#e8e6e1);font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:12px 22px;text-decoration:none}
+.cta a.btn:hover{background:var(--accent,#c8b48a);border-color:var(--accent,#c8b48a);color:var(--base-2,#14161c)}
+.cta a.ghost{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.1em;color:var(--ink-soft,#9b9a96);text-decoration:none}
+.cta a.ghost:hover{color:var(--accent,#c8b48a)}
 .themes{display:flex;gap:0;border:1px solid var(--line,#2c303a)}
 .themes button{appearance:none;background:transparent;border:0;border-right:1px solid var(--line,#2c303a);color:var(--muted,#63666e);font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;padding:5px 10px;cursor:pointer;text-transform:uppercase}
 .themes button:last-child{border-right:0}
@@ -41,21 +48,10 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
 .sec:last-of-type{border-bottom:0}
 .sec h2{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:clamp(28px,5vw,40px);letter-spacing:.02em;margin:0 0 16px}
 .sec p,.sec li{font-family:"IBM Plex Mono",monospace;font-size:13px;line-height:1.7;color:var(--ink-soft,#9b9a96)}
+.sec a{color:var(--accent,#c8b48a);text-underline-offset:3px}
 .steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:step}
 .steps li{counter-increment:step;padding-left:2.6rem;position:relative}
 .steps li::before{content:counter(step);position:absolute;left:0;top:0;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--accent,#c8b48a);border:1px solid var(--line,#2c303a);width:1.8rem;height:1.8rem;display:flex;align-items:center;justify-content:center}
-.grid{display:grid;gap:16px;margin-top:8px}
-@media (min-width:700px){.grid{grid-template-columns:1fr 1fr}}
-.card{border:1px solid var(--line,#2c303a);padding:22px 20px;display:flex;flex-direction:column;gap:12px;background:color-mix(in srgb,var(--ink,#e8e6e1) 3%,transparent)}
-.card h3{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:28px;margin:0;letter-spacing:.02em}
-.card .price{font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.06em;color:var(--accent,#c8b48a);margin:0}
-.card ul{margin:0;padding-left:1.1rem;display:grid;gap:8px}
-.card li{color:var(--ink-soft,#9b9a96)}
-.card code{font-size:.9em;color:var(--ink,#e8e6e1)}
-.btn{display:inline-block;text-align:center;text-decoration:none;appearance:none;background:var(--ink,#e8e6e1);color:var(--base-2,#14161c);border:1px solid var(--ink,#e8e6e1);font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:12px 18px;cursor:pointer;margin-top:auto}
-.btn:hover{background:var(--accent,#c8b48a);border-color:var(--accent,#c8b48a);color:var(--base-2,#14161c)}
-.optional{margin-top:18px;padding:16px 18px;border:1px dashed var(--line,#2c303a);font-family:"IBM Plex Mono",monospace;font-size:13px;line-height:1.7;color:var(--ink-soft,#9b9a96)}
-.optional strong{color:var(--ink,#e8e6e1);font-weight:500}
 .status-table{width:100%;border-collapse:collapse;margin-top:8px;font-family:"IBM Plex Mono",monospace;font-size:12.5px}
 .status-table th,.status-table td{border:1px solid var(--line,#2c303a);padding:10px 12px;text-align:left;vertical-align:top;color:var(--ink-soft,#9b9a96)}
 .status-table th{color:var(--accent,#c8b48a);font-weight:500;letter-spacing:.08em;text-transform:uppercase;font-size:11px}
@@ -72,114 +68,44 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebSite",
+      "name": "Suggest Page",
+      "url": "https://suggestpage.com/",
+      "description": "A static suggestion form with a public Yes / Later / No board.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Color It Company",
+        "email": "steven@coloritcompany.com"
+      }
+    },
+    {
       "@type": "FAQPage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "When does setup start?",
+          "name": "What is Suggest Page?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Setup starts within 24h of payment. We’ll email from steven@coloritcompany.com to ask for your URL/domain, brand name, and a one-line purpose, then provision."
+            "text": "A static suggestion form plus a public Yes / Later / No board for one URL. Visitors send ideas; you decide; the board updates when the site republishes."
           }
         },
         {
           "@type": "Question",
-          "name": "Do I keep the files?",
+          "name": "Where can I try it?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Static files you can host on GitHub Pages (or similar). The public board is driven by data.json."
+            "text": "See /suggest/ (form) and /suggestions/ (board) on suggestpage.com. Those demo flows use FormSubmit."
           }
         },
         {
           "@type": "Question",
-          "name": "How many status updates?",
+          "name": "How do I buy one for my site?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Page Pack includes up to 12 Yes / Later / No updates per year. Site Care is monthly triage plus small Approved edits — status passes as needed."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is there a revision limit?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No formal revision rounds. Page Pack’s 12/yr budget is for status updates; Site Care covers monthly triage and small edits from Yes ideas."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Checkout?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Email the CTAs above for now. Stripe Payment Links come next; success URL will be /sell/thanks/."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Where’s the demo?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "See /suggest/ (form) and /suggestions/ (board) on suggestpage.com."
+            "text": "Pricing and checkout live on /sell/. Email the CTAs there for now. Stripe Payment Links come next; after checkout the success URL is /sell/thanks/."
           }
         }
       ]
-    },
-    {
-      "@type": "Product",
-      "name": "Page Pack",
-      "description": "Static suggestion page + Yes/Later/No board for one URL. Up to 12 status updates per year.",
-      "brand": {
-        "@type": "Brand",
-        "name": "Color It Company"
-      },
-      "url": "https://suggestpage.com/",
-      "offers": {
-        "@type": "Offer",
-        "price": "39.00",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock",
-        "url": "https://suggestpage.com/",
-        "priceValidUntil": "2027-12-31",
-        "description": "$39 per year · one URL"
-      }
-    },
-    {
-      "@type": "Product",
-      "name": "Site Care",
-      "description": "Page Pack plus monthly triage and small page edits from Approved / Yes ideas for one URL.",
-      "brand": {
-        "@type": "Brand",
-        "name": "Color It Company"
-      },
-      "url": "https://suggestpage.com/",
-      "offers": {
-        "@type": "Offer",
-        "price": "39.00",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock",
-        "url": "https://suggestpage.com/",
-        "priceValidUntil": "2027-12-31",
-        "description": "$39 per month · one URL"
-      }
-    },
-    {
-      "@type": "Product",
-      "name": "Board Build",
-      "description": "Optional one-time branded first page + form + board. Attach to Page Pack or Site Care.",
-      "brand": {
-        "@type": "Brand",
-        "name": "Color It Company"
-      },
-      "url": "https://suggestpage.com/",
-      "offers": {
-        "@type": "Offer",
-        "price": "299.00",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock",
-        "url": "https://suggestpage.com/",
-        "priceValidUntil": "2027-12-31",
-        "description": "$299 one-time (optional)"
-      }
     }
   ]
 }
@@ -188,12 +114,11 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
 <body>
 <div class="e-wrap">
   <div class="e-top">
-    <a href="/">Suggest Page</a>
+    <a href="/" aria-current="page">Suggest Page</a>
     <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
-      
       <a href="/suggest/">Suggest</a>
       <a href="/suggestions/">Suggestions</a>
-      <a href="/" aria-current="page">Offer</a>
+      <a href="/sell/">Sell</a>
       <div class="themes" role="group" aria-label="Color theme">
         <button type="button" data-set-theme="neon">Neon</button>
         <button type="button" data-set-theme="emerald">Emerald</button>
@@ -206,10 +131,14 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
   </div>
 
   <header class="e-hero">
-    <p class="e-kicker">Color It Company · Offer</p>
+    <p class="e-kicker">Color It Company · Product</p>
     <h1>A static page with a live suggestion board</h1>
-    <p class="lede">Visitors send ideas for your site. You (or we) mark Yes, Later, or No. Approved ideas land on a public board when the site republishes — same pattern as the live demo on suggestpage.com.</p>
+    <p class="lede">Visitors send ideas for your site. You (or we) mark Yes, Later, or No. Approved ideas land on a public board when the site republishes — same pattern as the live demo on this domain.</p>
     <p class="demo">Live demo: <a href="/suggest/">/suggest/</a> (form) · <a href="/suggestions/">/suggestions/</a> (board)</p>
+    <div class="cta">
+      <a class="btn" href="/sell/">Buy on /sell/</a>
+      <a class="ghost" href="/suggest/">Try the demo</a>
+    </div>
   </header>
 
   <section class="sec" aria-labelledby="how">
@@ -226,50 +155,6 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
     <p>Indie sites, studios, and one-person projects that want a public idea inbox without a CMS. One URL, static files, no login wall for visitors.</p>
   </section>
 
-  <section class="sec" aria-labelledby="pricing">
-    <h2 id="pricing">Pricing</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>Page Pack</h3>
-        <p class="price">$39 / year · one URL</p>
-        <ul>
-          <li>Static page + suggestion form (light branding)</li>
-          <li>FormSubmit → ops inbox</li>
-          <li>Public board driven by <code>suggestions/data.json</code></li>
-          <li>Up to 12 Yes / Later / No status updates / year → board republish</li>
-          <li>You keep the files (GitHub Pages–friendly)</li>
-        </ul>
-        <!-- Replace href after creating Stripe Payment Link -->
-        <a class="btn" href="mailto:steven@coloritcompany.com?subject=Page%20Pack%20%2439%2Fyr">Email for Page Pack</a>
-      </article>
-      <article class="card">
-        <h3>Site Care</h3>
-        <p class="price">$39 / month · one URL</p>
-        <ul>
-          <li>Everything in Page Pack</li>
-          <li>Monthly triage + status passes as needed (not hard-capped at 12/yr)</li>
-          <li>Small page edits from Approved / Yes ideas (FAQ, roadmap, features-style)</li>
-          <li>Cancel anytime via Stripe portal (once checkout is live)</li>
-        </ul>
-        <!-- Replace href after creating Stripe Payment Link -->
-        <a class="btn" href="mailto:steven@coloritcompany.com?subject=Site%20Care%20%2439%2Fmo">Email for Site Care</a>
-      </article>
-    </div>
-    <div class="optional">
-      <strong>Board Build — $299 one-time (optional).</strong>
-      Branded first page + form + board. Attach to either SKU.
-    </div>
-  </section>
-
-  <section class="sec" aria-labelledby="includes">
-    <h2 id="includes">Site Care — not included</h2>
-    <ul style="margin:0;padding-left:1.1rem;display:grid;gap:8px">
-      <li>Full redesigns, multi-page builds, or custom apps</li>
-      <li>Continuous chat with visitors (v1 is board-on-republish only)</li>
-      <li>Unlimited big content rewrites</li>
-    </ul>
-  </section>
-
   <section class="sec" aria-labelledby="statuses">
     <h2 id="statuses">Yes / Later / No</h2>
     <table class="status-table">
@@ -284,21 +169,26 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
     </table>
   </section>
 
+  <section class="sec" aria-labelledby="get">
+    <h2 id="get">Get one for your URL</h2>
+    <p>Page Pack is $39/year. Site Care is $39/month. Optional Board Build is $299 one-time. Pricing, what’s included, and checkout live on the offer page — not here.</p>
+    <div class="cta">
+      <a class="btn" href="/sell/">See pricing &amp; buy</a>
+    </div>
+  </section>
+
   <section class="sec" aria-labelledby="faq">
     <h2 id="faq">FAQ</h2>
     <ul class="faq">
-      <li><strong>When does setup start?</strong><span>Setup starts within 24h of payment. We’ll email from steven@coloritcompany.com to ask for your URL/domain, brand name, and a one-line purpose, then provision.</span></li>
-      <li><strong>Do I keep the files?</strong><span>Yes. Static files you can host on GitHub Pages (or similar). The public board is driven by <code>data.json</code>.</span></li>
-      <li><strong>How many status updates?</strong><span>Page Pack includes up to 12 Yes / Later / No updates per year. Site Care is monthly triage plus small Approved edits — status passes as needed.</span></li>
-      <li><strong>Is there a revision limit?</strong><span>No formal revision rounds. Page Pack’s 12/yr budget is for status updates; Site Care covers monthly triage and small edits from Yes ideas.</span></li>
-      <li><strong>Checkout?</strong><span>Email the CTAs above for now. Stripe Payment Links come next; success URL will be <code>/sell/thanks/</code>.</span></li>
-      <li><strong>Where’s the demo?</strong><span><a href="/suggest/" style="color:var(--accent,#c8b48a)">/suggest/</a> (form) and <a href="/suggestions/" style="color:var(--accent,#c8b48a)">/suggestions/</a> (board) on suggestpage.com.</span></li>
+      <li><strong>What is this?</strong><span>A static suggestion form plus a public Yes / Later / No board for one URL. This homepage is the product story; <a href="/sell/">/sell/</a> is the commercial page.</span></li>
+      <li><strong>Where’s the demo?</strong><span><a href="/suggest/">/suggest/</a> (form) and <a href="/suggestions/">/suggestions/</a> (board). Those FormSubmit demo flows stay intact.</span></li>
+      <li><strong>Checkout?</strong><span>Buy on <a href="/sell/">/sell/</a>. Email the CTAs there for now. Stripe Payment Links come next; after checkout the success URL is <code>/sell/thanks/</code>.</span></li>
     </ul>
   </section>
 
   <footer class="e-foot">
     <span>Questions: <a href="mailto:steven@coloritcompany.com">steven@coloritcompany.com</a> · Color It Company</span>
-    <span><a href="/">Home</a> · <a href="/suggest/">Suggest</a> · </span>
+    <span><a href="/sell/">Sell</a> · <a href="/suggest/">Suggest</a> · <a href="/suggestions/">Suggestions</a></span>
   </footer>
 </div>
 <script>

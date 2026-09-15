@@ -10,12 +10,14 @@
 <meta property="og:site_name" content="Color It Company">
 <meta property="og:title" content="Suggestion pages with a live Yes / Later / No board — Color It Company">
 <meta property="og:description" content="Buy a static suggestion page for your URL. Visitors send ideas; you mark Yes, Later, or No; the public board updates when the site republishes.">
-<meta property="og:url" content="https://suggestpage.com/">
+<meta property="og:url" content="https://suggestpage.com/sell/">
+<meta property="og:image" content="https://suggestpage.com/images/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Suggestion pages with a live Yes / Later / No board — Color It Company">
 <meta name="twitter:description" content="Buy a static suggestion page for your URL. Visitors send ideas; you mark Yes, Later, or No; the public board updates when the site republishes.">
+<meta name="twitter:image" content="https://suggestpage.com/images/og.png">
 <script src="/js/sp-theme-boot.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -111,7 +113,7 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
           "name": "Checkout?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Email the CTAs above for now. Stripe Payment Links come next; success URL will be /sell/thanks/."
+            "text": "Email the CTAs above for now. Stripe Payment Links come next; after checkout the success URL is /sell/thanks/."
           }
         },
         {
@@ -132,13 +134,13 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
         "@type": "Brand",
         "name": "Color It Company"
       },
-      "url": "https://suggestpage.com/",
+      "url": "https://suggestpage.com/sell/",
       "offers": {
         "@type": "Offer",
         "price": "39.00",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
-        "url": "https://suggestpage.com/",
+        "url": "https://suggestpage.com/sell/",
         "priceValidUntil": "2027-12-31",
         "description": "$39 per year · one URL"
       }
@@ -151,13 +153,13 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
         "@type": "Brand",
         "name": "Color It Company"
       },
-      "url": "https://suggestpage.com/",
+      "url": "https://suggestpage.com/sell/",
       "offers": {
         "@type": "Offer",
         "price": "39.00",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
-        "url": "https://suggestpage.com/",
+        "url": "https://suggestpage.com/sell/",
         "priceValidUntil": "2027-12-31",
         "description": "$39 per month · one URL"
       }
@@ -170,13 +172,13 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
         "@type": "Brand",
         "name": "Color It Company"
       },
-      "url": "https://suggestpage.com/",
+      "url": "https://suggestpage.com/sell/",
       "offers": {
         "@type": "Offer",
         "price": "299.00",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
-        "url": "https://suggestpage.com/",
+        "url": "https://suggestpage.com/sell/",
         "priceValidUntil": "2027-12-31",
         "description": "$299 one-time (optional)"
       }
@@ -193,7 +195,7 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
       
       <a href="/suggest/">Suggest</a>
       <a href="/suggestions/">Suggestions</a>
-      <a href="/" aria-current="page">Offer</a>
+      <a href="/sell/" aria-current="page">Sell</a>
       <div class="themes" role="group" aria-label="Color theme">
         <button type="button" data-set-theme="neon">Neon</button>
         <button type="button" data-set-theme="emerald">Emerald</button>
@@ -239,7 +241,7 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
           <li>Up to 12 Yes / Later / No status updates / year → board republish</li>
           <li>You keep the files (GitHub Pages–friendly)</li>
         </ul>
-        <!-- Replace href after creating Stripe Payment Link -->
+        <!-- TODO: replace mailto with Stripe Payment Link; success URL = https://suggestpage.com/sell/thanks/ -->
         <a class="btn" href="mailto:steven@coloritcompany.com?subject=Page%20Pack%20%2439%2Fyr">Email for Page Pack</a>
       </article>
       <article class="card">
@@ -251,7 +253,7 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
           <li>Small page edits from Approved / Yes ideas (FAQ, roadmap, features-style)</li>
           <li>Cancel anytime via Stripe portal (once checkout is live)</li>
         </ul>
-        <!-- Replace href after creating Stripe Payment Link -->
+        <!-- TODO: replace mailto with Stripe Payment Link; success URL = https://suggestpage.com/sell/thanks/ -->
         <a class="btn" href="mailto:steven@coloritcompany.com?subject=Site%20Care%20%2439%2Fmo">Email for Site Care</a>
       </article>
     </div>
@@ -291,14 +293,14 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
       <li><strong>Do I keep the files?</strong><span>Yes. Static files you can host on GitHub Pages (or similar). The public board is driven by <code>data.json</code>.</span></li>
       <li><strong>How many status updates?</strong><span>Page Pack includes up to 12 Yes / Later / No updates per year. Site Care is monthly triage plus small Approved edits — status passes as needed.</span></li>
       <li><strong>Is there a revision limit?</strong><span>No formal revision rounds. Page Pack’s 12/yr budget is for status updates; Site Care covers monthly triage and small edits from Yes ideas.</span></li>
-      <li><strong>Checkout?</strong><span>Email the CTAs above for now. Stripe Payment Links come next; success URL will be <code>/sell/thanks/</code>.</span></li>
+      <li><strong>Checkout?</strong><span>Email the CTAs above for now. Stripe Payment Links come next; after checkout the success URL is <code>/sell/thanks/</code>.</span></li>
       <li><strong>Where’s the demo?</strong><span><a href="/suggest/" style="color:var(--accent,#c8b48a)">/suggest/</a> (form) and <a href="/suggestions/" style="color:var(--accent,#c8b48a)">/suggestions/</a> (board) on suggestpage.com.</span></li>
     </ul>
   </section>
 
   <footer class="e-foot">
     <span>Questions: <a href="mailto:steven@coloritcompany.com">steven@coloritcompany.com</a> · Color It Company</span>
-    <span><a href="/">Home</a> · <a href="/suggest/">Suggest</a> · </span>
+    <span><a href="/">Home</a> · <a href="/suggest/">Suggest</a> · <a href="/suggestions/">Suggestions</a></span>
   </footer>
 </div>
 <script>
