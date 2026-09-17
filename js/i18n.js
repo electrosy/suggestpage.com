@@ -106,7 +106,7 @@
       "home.status.yes.page": "May get a small edit on republish",
       "home.title": "Suggestion pages with a live Yes / Later / No board — Color It Company",
       "home.video.h2": "See it in action",
-      "home.video.lede": "A short walkthrough from suggestion board to published page.",
+      "home.video.lede": "A short walkthrough from homepage to live board.",
       "home.who.h2": "Who it's for",
       "home.who.p": "Indie sites, studios, and one-person projects that want a public idea inbox without a CMS. One URL, static files, no login wall for visitors.",
       "lang.aria": "Language",
