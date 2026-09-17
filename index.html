@@ -101,6 +101,11 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
 .checkout-legal{margin:14px 0 0;font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.6;color:var(--muted,#63666e)}
 .checkout-legal a{color:var(--accent,#c8b48a);text-underline-offset:3px}
 
+
+.yt-embed{margin:22px 0 0;max-width:720px;border:1px solid var(--line,#2c303a);background:color-mix(in srgb,var(--ink,#e8e6e1) 3%,transparent);overflow:hidden}
+.yt-embed__frame{position:relative;width:100%;padding-top:56.25%;height:0}
+.yt-embed__frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.yt-embed__cap{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted,#63666e);padding:10px 12px;border-top:1px solid var(--line,#2c303a);margin:0}
 </style>
 <script type="application/ld+json">
 {
@@ -289,6 +294,7 @@ body{background:var(--base-2,#14161c);color:var(--ink,#e8e6e1)}
       <iframe src="https://www.youtube.com/embed/OkDBaVj_ki0" title="Suggest Page — board to website" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
     </div>
   </section>
+
 
   <section class="sec" aria-labelledby="how">
     <h2 id="how" data-i18n="home.how.h2">How it works</h2>
