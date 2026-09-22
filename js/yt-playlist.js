@@ -16,6 +16,7 @@
     var src = 'https://www.youtube.com/embed/videoseries?list=' + encodeURIComponent(list) + '&autoplay=1&playsinline=1&rel=0';
     frame.innerHTML = '';
     var iframe = document.createElement('iframe');
+    iframe.loading = 'lazy';
     iframe.src = src;
     iframe.title = title;
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
